@@ -5,162 +5,206 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kopi Bahagia - Promosi</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4ece1;
-            color: #4a3525;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-        }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4ece1; color: #4a3525; text-align: center; padding: 20px; margin: 0; }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
+        /* Tabel utama = kerangka halaman */
+        table.layout { width: 100%; max-width: 800px; margin: 0 auto; background: #fff; border-collapse: separate; border-spacing: 0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        table.layout > thead > tr > td, table.layout > tbody > tr > td { padding: 15px 30px; }
 
-        h1 {
-            color: #6f4e37;
-            margin-bottom: 5px;
-        }
+        h1 { color: #6f4e37; margin: 15px 0 5px; }
+        h2 { color: #6f4e37; margin: 5px 0 12px; }
+        p.subtitle { font-size: 1.1rem; color: #8c6d58; margin: 0 0 10px; }
 
-        p.subtitle {
-            font-size: 1.1rem;
-            color: #8c6d58;
-            margin-top: 0;
-        }
+        /* Navigasi (tabel) */
+        table.nav { width: 100%; border-collapse: collapse; border-bottom: 2px solid #e6d9c8; }
+        table.nav td { width: 25%; padding: 12px 5px; text-align: center; }
+        table.nav a { color: #6f4e37; text-decoration: none; font-weight: bold; }
+        table.nav a:hover { text-decoration: underline; color: #533927; }
 
-        /* Navigasi hyperlink antar halaman */
-        nav.main-nav {
-            margin: 15px 0 25px 0;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e6d9c8;
-        }
+        video { width: 100%; max-width: 700px; height: auto; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.15); }
 
-        nav.main-nav a {
-            color: #6f4e37;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 10px;
-        }
+        /* Tabel data */
+        table.data { width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; }
+        table.data caption { caption-side: top; font-weight: bold; font-size: 1.1rem; color: #6f4e37; padding-bottom: 8px; }
+        table.data th { background: #6f4e37; color: #fff; padding: 10px; border: 1px solid #6f4e37; }
+        table.data td { padding: 10px; border: 1px solid #e6d9c8; vertical-align: middle; }
+        table.data tbody tr:nth-child(even) { background: #faf6f0; }
+        .num { text-align: right; white-space: nowrap; }
+        .old { text-decoration: line-through; color: #a79483; }
+        .new { font-weight: bold; color: #6f4e37; }
+        .badge { background: #f4ece1; border: 1px solid #d8c7b5; border-radius: 12px; padding: 2px 8px; font-size: 0.8rem; white-space: nowrap; }
 
-        nav.main-nav a:hover {
-            text-decoration: underline;
-            color: #533927;
-        }
+        /* Keunggulan: tabel 3 kolom */
+        table.features { width: 100%; border-collapse: separate; border-spacing: 8px; }
+        table.features td { width: 33.33%; background: #faf6f0; border: 1px solid #e6d9c8; border-radius: 10px; padding: 14px 10px; text-align: center; font-size: 0.9rem; vertical-align: top; }
+        table.features .icon { font-size: 1.8rem; display: block; margin-bottom: 4px; }
 
-        .video-wrapper {
-            margin: 25px 0;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-        }
+        .btn-order { display: inline-block; background-color: #6f4e37; color: #fff; padding: 12px 28px; font-size: 1rem; font-weight: bold; text-decoration: none; border-radius: 25px; transition: background-color 0.3s ease; }
+        .btn-order:hover { background-color: #533927; }
 
-        video {
-            width: 100%;
-            max-width: 700px;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
+        .order-section td { text-align: left; }
+        .order-section ul { line-height: 1.8; margin: 0; }
+        .credit { font-size: 0.75rem; color: #b0a294; margin: 10px 0 0; }
 
-        .btn-order {
-            display: inline-block;
-            background-color: #6f4e37;
-            color: #ffffff;
-            padding: 12px 28px;
-            font-size: 1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 25px;
-            transition: background-color 0.3s ease;
-        }
-
-        .btn-order:hover {
-            background-color: #533927;
-        }
-
-        /* Bagian tujuan link anchor (#order) */
-        .order-section {
-            margin-top: 35px;
-            padding-top: 25px;
-            border-top: 2px solid #e6d9c8;
-            text-align: left;
-        }
-
-        .order-section h2 {
-            color: #6f4e37;
-            text-align: center;
-        }
-
-        .order-section ul {
-            line-height: 1.8;
-        }
-
-        .credit {
-            font-size: 0.75rem;
-            color: #b0a294;
-            margin-top: 10px;
+        @media (max-width: 600px) {
+            table.layout > thead > tr > td, table.layout > tbody > tr > td { padding: 12px; }
+            table.features, table.features tbody, table.features tr, table.features td { display: block; width: auto; }
+            table.features td { margin-bottom: 8px; }
+            table.data { font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <h1>☕ Kopi Bahagia ♡</h1>
-        <p class="subtitle">Aroma Terbaik untuk Semangat Hari-mu</p>
+<table class="layout">
+    <thead>
+        <tr>
+            <td>
+                <h1>☕ Kopi Bahagia ♡</h1>
+                <p class="subtitle">Aroma Terbaik untuk Semangat Hari-mu</p>
+            </td>
+        </tr>
+    </thead>
 
-        <!-- Link relative: menuju halaman lain di website yang sama -->
-        <nav class="main-nav">
-            <a href="index.html">Beranda</a> |
-            <a href="menu.html">Menu</a> |
-            <a href="tentang.html">Tentang Kami</a> |
-            <a href="kontak.html">Kontak</a>
-        </nav>
+    <tbody>
+        <!-- Navigasi (tabel di dalam tabel) -->
+        <tr>
+            <td>
+                <table class="nav">
+                    <tr>
+                        <td><a href="index.html">Beranda</a></td>
+                        <td><a href="menu.html">Menu</a></td>
+                        <td><a href="tentang.html">Tentang Kami</a></td>
+                        <td><a href="kontak.html">Kontak</a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
 
-        <div class="video-wrapper">
-            <!--
-              Video di bawah dari Mixkit (mixkit.co), gratis untuk dipakai
-              komersial tanpa watermark dan tanpa perlu atribusi, di bawah
-              Mixkit License: https://mixkit.co/license/#videoFree
-            -->
-            <video id= "coffeeVideo" controls muted loop playsinline
-                poster="./KopiBahagiaPoster.png">
-                <source src="./KopiBahagia.mp4" type="video/mp4">
-                Browser kamu tidak mendukung pemutaran video.
-            </video>
-        </div>
+        <!-- Video -->
+        <tr>
+            <td>
+                <!-- Video dari Mixkit (mixkit.co), Mixkit License: https://mixkit.co/license/#videoFree -->
+                <video id="coffeeVideo" controls muted loop playsinline poster="./KopiBahagiaPoster.png">
+                    <source src="./KopiBahagia.mp4" type="video/mp4">
+                    Browser kamu tidak mendukung pemutaran video.
+                </video>
+            </td>
+        </tr>
 
+        <!-- Tabel promo paket hemat -->
+        <tr>
+            <td>
+                <table class="data">
+                    <caption>🎉 Promo Paket Hemat</caption>
+                    <thead>
+                        <tr>
+                            <th>Paket</th>
+                            <th>Isi Paket</th>
+                            <th class="num">Harga Normal</th>
+                            <th class="num">Harga Promo</th>
+                            <th class="num">Hemat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Paket Pagi</strong></td>
+                            <td>Kopi Susu Gula Aren + Croissant</td>
+                            <td class="num old">Rp35.000</td>
+                            <td class="num new">Rp32.000</td>
+                            <td class="num">Rp3.000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Paket Santai</strong></td>
+                            <td>Cappuccino + Cake Cokelat</td>
+                            <td class="num old">Rp43.000</td>
+                            <td class="num new">Rp39.000</td>
+                            <td class="num">Rp4.000</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Paket Hijau</strong></td>
+                            <td>Matcha Latte + Roti Cokelat</td>
+                            <td class="num old">Rp37.000</td>
+                            <td class="num new">Rp34.000</td>
+                            <td class="num">Rp3.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
 
+        <!-- Tabel jadwal promo -->
+        <tr>
+            <td>
+                <table class="data">
+                    <caption>📅 Jadwal Promo Mingguan</caption>
+                    <thead>
+                        <tr><th>Hari</th><th>Promo</th><th>Keterangan</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Senin – Kamis</td>
+                            <td><span class="badge">Paket Pagi</span></td>
+                            <td>Berlaku pukul 07.00 – 11.00</td>
+                        </tr>
+                        <tr>
+                            <td>Jumat</td>
+                            <td><span class="badge">Diskon 10%</span></td>
+                            <td>Untuk semua menu minuman</td>
+                        </tr>
+                        <tr>
+                            <td>Sabtu – Minggu</td>
+                            <td><span class="badge">Paket Santai</span></td>
+                            <td>Berlaku sepanjang hari</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
 
-        <!-- Link anchor: menuju bagian #order di halaman yang sama -->
-        <a href="#order" class="btn-order">Pesan Kopi Sekarang</a>
+        <!-- Keunggulan (tabel 3 kolom) -->
+        <tr>
+            <td>
+                <h2>Kenapa Kopi Bahagia?</h2>
+                <table class="features">
+                    <tr>
+                        <td><span class="icon">🌱</span><strong>Bahan Pilihan</strong><br>Biji kopi dan bahan segar setiap hari</td>
+                        <td><span class="icon">🛋️</span><strong>Tempat Nyaman</strong><br>Cocok untuk belajar dan berkumpul</td>
+                        <td><span class="icon">💸</span><strong>Harga Bersahabat</strong><br>Menu mulai dari Rp15.000</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
 
-        <p class="credit">Video: Mixkit.co (bebas royalti, gratis untuk komersial)</p>
+        <!-- Tombol pesan -->
+        <tr>
+            <td>
+                <a href="#order" class="btn-order">Pesan Kopi Sekarang</a>
+                <p class="credit">Video: Mixkit.co (bebas royalti, gratis untuk komersial)</p>
+            </td>
+        </tr>
 
-        <!-- Tujuan dari link anchor di atas -->
-        <section id="order" class="order-section">
-            <h2>Cara Pesan</h2>
-            <ul>
-                <li>Lihat menu lengkap kami di halaman <a href="menu.html">Menu</a>.</li>
-                <li>Hubungi kami langsung lewat halaman <a href="kontak.html">Kontak</a>, atau kirim email ke
-                    <a href="mailto:kopibahagia@gmail.com">kopibahagia@gmail.com</a>.</li>
-                <li>Kunjungi juga profil kami di
-                    <a href="https://www.instagram.com/" target="_blank">Instagram</a> (link absolute ke situs lain).</li>
-            </ul>
-        </section>
-    </div>
+        <!-- Cara pesan (tujuan anchor #order) -->
+        <tr id="order" class="order-section">
+            <td>
+                <h2 style="text-align:center;">Cara Pesan</h2>
+                <ul>
+                    <li>Lihat menu lengkap kami di halaman <a href="menu.html">Menu</a>.</li>
+                    <li>Hubungi kami lewat halaman <a href="kontak.html">Kontak</a>, atau kirim email ke
+                        <a href="mailto:kopibahagia@gmail.com">kopibahagia@gmail.com</a>.</li>
+                    <li>Kunjungi juga profil kami di
+                        <a href="https://www.instagram.com/" target="_blank">Instagram</a>.</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-    <div id="page-bottom"></div>
+<div id="page-bottom"></div>
 
 <script>
     const video = document.getElementById("coffeeVideo");
     const bottomMarker = document.getElementById("page-bottom");
-
     const delay = 5000;
     let timer;
 
@@ -168,29 +212,21 @@
 
     function resetVideo() {
         clearTimeout(timer);
-
         video.pause();
         video.currentTime = 0;
         video.load();
-
         // Poster tampil selama 5 detik
         timer = setTimeout(() => {
-            video.play().catch(error => {
-                console.error("Video gagal diputar:", error);
-            });
+            video.play().catch(error => console.error("Video gagal diputar:", error));
         }, delay);
     }
 
-    // Jalankan saat halaman pertama dibuka
     window.addEventListener("load", resetVideo);
 
     // Ulangi ketika pengguna sampai di bagian bawah halaman
     const observer = new IntersectionObserver((entries) => {
-        if (entries[0].isIntersecting) {
-            resetVideo();
-        }
+        if (entries[0].isIntersecting) resetVideo();
     });
-
     observer.observe(bottomMarker);
 
     video.addEventListener("error", () => {
