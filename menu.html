@@ -1,90 +1,190 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Menu - Kopi Bahagia</title>
-<style>
-*{box-sizing:border-box}
-body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background-color:#f4ece1;color:#4a3525;text-align:center;padding:20px;margin:0}
-.container{max-width:800px;margin:0 auto;background:#fff;padding:30px;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,.1)}
-h1{color:#6f4e37;margin-bottom:5px}h2,h3{color:#6f4e37}.subtitle{font-size:1.1rem;color:#8c6d58;margin-top:0}
-nav.main-nav{margin:15px 0 25px;padding-bottom:15px;border-bottom:2px solid #e6d9c8}
-nav.main-nav a{color:#6f4e37;text-decoration:none;font-weight:bold;margin:0 10px}
-nav.main-nav a:hover{text-decoration:underline;color:#533927}
-.card{background:#faf6f0;border:1px solid #e6d9c8;border-radius:12px;padding:20px;margin:18px 0;text-align:left}
-.intro{line-height:1.7;text-align:justify}.menu-item{display:flex;justify-content:space-between;gap:15px;border-bottom:1px dashed #d8c7b5;padding:12px 0}
-.menu-item:last-child{border-bottom:none}.price{font-weight:bold;color:#6f4e37;white-space:nowrap}
-ol,ul{line-height:1.8}.order-steps li{margin-bottom:8px}
-.btn{display:inline-block;background-color:#6f4e37;color:#fff;padding:11px 24px;border-radius:25px;text-decoration:none;font-weight:bold;margin-top:12px}
-.btn:hover{background-color:#533927}.footer{margin-top:25px;font-size:.8rem;color:#b0a294}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Kopi Bahagia</title>
+    <style>
+        * { box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #f4ece1; color: #4a3525; text-align: center; padding: 20px; margin: 0; }
+
+        /* Tabel utama = kerangka halaman */
+        table.layout { width: 100%; max-width: 800px; margin: 0 auto; background: #fff; border-collapse: separate; border-spacing: 0; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        table.layout > thead > tr > td, table.layout > tbody > tr > td, table.layout > tfoot > tr > td { padding: 15px 30px; }
+
+        h1 { color: #6f4e37; margin: 15px 0 5px; }
+        h2 { color: #6f4e37; margin: 5px 0 12px; }
+        .subtitle { font-size: 1.1rem; color: #8c6d58; margin: 0 0 10px; }
+
+        table.nav { width: 100%; border-collapse: collapse; border-bottom: 2px solid #e6d9c8; }
+        table.nav td { width: 25%; padding: 12px 5px; text-align: center; }
+        table.nav a { color: #6f4e37; text-decoration: none; font-weight: bold; }
+        table.nav a:hover { text-decoration: underline; color: #533927; }
+
+        .intro { line-height: 1.7; text-align: justify; margin: 0; }
+
+        /* Tabel data */
+        table.data { width: 100%; border-collapse: collapse; text-align: left; }
+        table.data caption { caption-side: top; font-weight: bold; font-size: 1.2rem; color: #6f4e37; padding-bottom: 8px; }
+        table.data th { background: #6f4e37; color: #fff; padding: 10px; border: 1px solid #6f4e37; }
+        table.data td { padding: 10px; border: 1px solid #e6d9c8; vertical-align: middle; }
+        table.data tbody tr:nth-child(even) { background: #faf6f0; }
+        table.data td.foto, table.data th.foto { width: 110px; text-align: center; }
+        table.data td.harga, table.data th.harga { text-align: right; white-space: nowrap; font-weight: bold; color: #6f4e37; }
+        table.data th.harga { color: #fff; }
+        table.data .kategori td { background: #e6d9c8; font-weight: bold; color: #4a3525; }
+        .desc { display: block; font-size: 0.85rem; color: #8c6d58; margin-top: 3px; }
+
+        /* Foto menu */
+        img.foto-menu { width: 90px; height: 90px; object-fit: cover; border-radius: 10px; border: 1px solid #d8c7b5; display: block; margin: 0 auto; background: #f4ece1; }
+
+        /* Langkah pemesanan (tabel) */
+        table.steps { width: 100%; border-collapse: collapse; text-align: left; }
+        table.steps td { padding: 9px 10px; border-bottom: 1px dashed #d8c7b5; vertical-align: top; }
+        table.steps td.no { width: 40px; font-weight: bold; color: #fff; }
+        table.steps td.no span { display: inline-block; width: 28px; height: 28px; line-height: 28px; text-align: center; background: #6f4e37; border-radius: 50%; }
+
+        .btn { display: inline-block; background-color: #6f4e37; color: #fff; padding: 11px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; }
+        .btn:hover { background-color: #533927; }
+        .footer { font-size: 0.8rem; color: #b0a294; }
+
+        @media (max-width: 600px) {
+            table.layout > thead > tr > td, table.layout > tbody > tr > td, table.layout > tfoot > tr > td { padding: 12px; }
+            table.data td.foto, table.data th.foto { width: 80px; }
+            img.foto-menu { width: 66px; height: 66px; }
+            table.data td, table.data th { padding: 8px 6px; font-size: 0.9rem; }
+        }
+    </style>
 </head>
 <body>
-<div class="container">
-<h1>☕ Kopi Bahagia ♡</h1>
-<p class="subtitle">Menu Favorit untuk Menemani Hari-mu</p>
 
-<nav class="main-nav">
-<a href="index.html">Beranda</a> |
-<a href="menu.html">Menu</a> |
-<a href="tentang.html">Tentang Kami</a> |
-<a href="kontak.html">Kontak</a>
-</nav>
+<table class="layout">
+    <thead>
+        <tr>
+            <td>
+                <h1>☕ Kopi Bahagia ♡</h1>
+                <p class="subtitle">Menu Favorit untuk Menemani Hari-mu</p>
+            </td>
+        </tr>
+    </thead>
 
-<div class="card intro">
-<h2>Daftar Menu Kopi Bahagia</h2>
-<p>Kopi Bahagia menyediakan berbagai pilihan makanan dan minuman yang cocok untuk menemani waktu santai, belajar, berkumpul bersama teman, maupun mengerjakan tugas. Berikut adalah beberapa menu yang tersedia di Kopi Bahagia.</p>
-</div>
+    <tbody>
+        <!-- Navigasi -->
+        <tr>
+            <td>
+                <table class="nav">
+                    <tr>
+                        <td><a href="index.html">Beranda</a></td>
+                        <td><a href="menu.html">Menu</a></td>
+                        <td><a href="tentang.html">Tentang Kami</a></td>
+                        <td><a href="kontak.html">Kontak</a></td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
 
-<div class="card">
-<h2>Kategori Menu</h2>
-<ul>
-<li><strong>Minuman</strong>
-<ul>
-<li>Kopi Susu Gula Aren</li>
-<li>Cappuccino</li>
-<li>Matcha Latte</li>
-</ul>
-</li>
-<li><strong>Makanan</strong>
-<ul>
-<li>Croissant</li>
-<li>Roti Cokelat</li>
-</ul>
-</li>
-<li><strong>Dessert</strong>
-<ul>
-<li>Cake Cokelat</li>
-</ul>
-</li>
-</ul>
-</div>
+        <!-- Intro -->
+        <tr>
+            <td>
+                <h2>Daftar Menu Kopi Bahagia</h2>
+                <p class="intro">
+                    Kopi Bahagia menyediakan berbagai pilihan makanan dan minuman yang cocok untuk
+                    menemani waktu santai, belajar, berkumpul bersama teman, maupun mengerjakan tugas.
+                    Berikut adalah beberapa menu yang tersedia di Kopi Bahagia.
+                </p>
+            </td>
+        </tr>
 
-<div class="card">
-<h2>Daftar Harga Menu</h2>
-<div class="menu-item"><span>☕ Kopi Susu Gula Aren</span><span class="price">Rp18.000</span></div>
-<div class="menu-item"><span>☕ Cappuccino</span><span class="price">Rp20.000</span></div>
-<div class="menu-item"><span>🍵 Matcha Latte</span><span class="price">Rp22.000</span></div>
-<div class="menu-item"><span>🥐 Croissant</span><span class="price">Rp17.000</span></div>
-<div class="menu-item"><span>🍞 Roti Cokelat</span><span class="price">Rp15.000</span></div>
-<div class="menu-item"><span>🍰 Cake Cokelat</span><span class="price">Rp23.000</span></div>
-</div>
+        <!-- Daftar menu + foto + harga -->
+        <tr>
+            <td>
+                <table class="data">
+                    <caption>Daftar Menu &amp; Harga</caption>
+                    <thead>
+                        <tr>
+                            <th class="foto">Foto</th>
+                            <th>Nama Menu</th>
+                            <th class="harga">Harga</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="kategori"><td colspan="3">☕ Minuman</td></tr>
+                        <tr>
+                            <td class="foto"><img class="foto-menu" src="img/kopi-susu-gula-aren.jpg" alt="Kopi Susu Gula Aren"></td>
+                            <td>Kopi Susu Gula Aren<span class="desc">Espresso, susu segar, dan manisnya gula aren</span></td>
+                            <td class="harga">Rp18.000</td>
+                        </tr>
+                        <tr>
+                            <td class="foto"><img class="foto-menu" src="img/cappuccino.jpg" alt="Cappuccino"></td>
+                            <td>Cappuccino<span class="desc">Espresso dengan busa susu lembut</span></td>
+                            <td class="harga">Rp20.000</td>
+                        </tr>
+                        <tr>
+                            <td class="foto"><img class="foto-menu" src="img/matcha-latte.jpg" alt="Matcha Latte"></td>
+                            <td>Matcha Latte<span class="desc">Matcha hijau dengan susu creamy</span></td>
+                            <td class="harga">Rp22.000</td>
+                        </tr>
 
-<div class="card">
-<h2>Langkah-Langkah Pemesanan Makanan</h2>
-<ol class="order-steps">
-<li>Pilih makanan atau minuman yang ingin dipesan.</li>
-<li>Lihat harga menu yang telah dipilih.</li>
-<li>Hubungi Kopi Bahagia melalui halaman Kontak.</li>
-<li>Sampaikan nama menu dan jumlah pesanan.</li>
-<li>Konfirmasi pesanan dan metode pembayaran.</li>
-<li>Tunggu pesanan diproses dan disiapkan.</li>
-</ol>
-</div>
+                        <tr class="kategori"><td colspan="3">🥐 Makanan</td></tr>
+                        <tr>
+                            <td class="foto"><img class="foto-menu" src="img/croissant.jpg" alt="Croissant"></td>
+                            <td>Croissant<span class="desc">Renyah di luar, lembut berlapis di dalam</span></td>
+                            <td class="harga">Rp17.000</td>
+                        </tr>
+                        <tr>
+                            <td class="foto"><img class="foto-menu" src="img/roti-cokelat.jpg" alt="Roti Cokelat"></td>
+                            <td>Roti Cokelat<span class="desc">Roti empuk dengan isian cokelat</span></td>
+                            <td class="harga">Rp15.000</td>
+                        </tr>
 
-<a class="btn" href="kontak.html">Pesan Sekarang</a>
-<div class="footer">© 2026 Kopi Bahagia</div>
-</div>
+                        <tr class="kategori"><td colspan="3">🍰 Dessert</td></tr>
+                        <tr>
+                            <td class="foto"><img class="foto-menu" src="img/cake-cokelat.jpg" alt="Cake Cokelat"></td>
+                            <td>Cake Cokelat<span class="desc">Cake cokelat lembut untuk penutup manis</span></td>
+                            <td class="harga">Rp23.000</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Langkah pemesanan (tabel bernomor) -->
+        <tr>
+            <td>
+                <h2>Langkah-Langkah Pemesanan Makanan</h2>
+                <table class="steps">
+                    <tr><td class="no"><span>1</span></td><td>Pilih makanan atau minuman yang ingin dipesan.</td></tr>
+                    <tr><td class="no"><span>2</span></td><td>Lihat harga menu yang telah dipilih.</td></tr>
+                    <tr><td class="no"><span>3</span></td><td>Hubungi Kopi Bahagia melalui halaman Kontak.</td></tr>
+                    <tr><td class="no"><span>4</span></td><td>Sampaikan nama menu dan jumlah pesanan.</td></tr>
+                    <tr><td class="no"><span>5</span></td><td>Konfirmasi pesanan dan metode pembayaran.</td></tr>
+                    <tr><td class="no"><span>6</span></td><td>Tunggu pesanan diproses dan disiapkan.</td></tr>
+                </table>
+            </td>
+        </tr>
+
+        <!-- Tombol pesan -->
+        <tr>
+            <td><a class="btn" href="kontak.html">Pesan Sekarang</a></td>
+        </tr>
+    </tbody>
+
+    <tfoot>
+        <tr>
+            <td class="footer">© 2026 Kopi Bahagia</td>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+    // Jika file foto belum ada, tampilkan gambar pengganti agar tampilan tetap rapi
+    const placeholder = "data:image/svg+xml;utf8," + encodeURIComponent(
+        "<svg xmlns='http://www.w3.org/2000/svg' width='90' height='90'><rect width='90' height='90' fill='#f4ece1'/><text x='45' y='58' font-size='36' text-anchor='middle'>☕</text></svg>"
+    );
+    document.querySelectorAll("img.foto-menu").forEach(img => {
+        img.addEventListener("error", () => { img.onerror = null; img.src = placeholder; });
+    });
+</script>
+
 </body>
 </html>
