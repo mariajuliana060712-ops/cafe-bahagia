@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - Kopi Bahagia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <style>
         * { box-sizing: border-box; }
 
@@ -165,6 +168,26 @@
         .btn { background-color: #c98b4a; color: #2a1a0f; box-shadow: 0 4px 14px rgba(255, 190, 110, 0.3); }
         .btn:hover { background-color: #e0a15e; }
         .footer { color: #cbb59a; }
+
+        /* Font judul bergaya kafe */
+        h1, h2, table.data caption { font-family: 'Playfair Display', Georgia, 'Times New Roman', serif; letter-spacing: 0.5px; }
+        h1 { font-size: 2.4rem; }
+
+        /* Efek saat baris menu disorot kursor */
+        table.data tbody tr { transition: background 0.25s ease, box-shadow 0.25s ease; }
+        table.data tbody tr:not(.kategori):hover {
+            background: rgba(255, 190, 110, 0.16);
+            box-shadow: inset 4px 0 0 #c98b4a, 0 6px 18px rgba(0, 0, 0, 0.35);
+        }
+        img.foto-menu { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        table.data tbody tr:hover img.foto-menu {
+            transform: scale(1.08);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Tombol sedikit terangkat saat disorot */
+        .btn { transition: transform 0.2s ease, background-color 0.2s ease; }
+        .btn:hover { transform: translateY(-2px); }
         /* ===== AKHIR TEMA ===== */
     </style>
 </head>
